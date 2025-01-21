@@ -15,7 +15,7 @@ export class AuthController {
             // Prevenir duplicados
             const userExists = await User.findOne({ email })
             if (userExists) {
-                const error = new Error('El Usuario ya esta registrado')
+                const error = new Error('El Usuario ya está registrado')
                 return res.status(409).json({ error: error.message })
             }
 
@@ -113,12 +113,12 @@ export class AuthController {
             // Usuario existe
             const user = await User.findOne({ email })
             if (!user) {
-                const error = new Error('El Usuario no esta registrado')
+                const error = new Error('El Usuario no está registrado')
                 return res.status(404).json({ error: error.message })
             }
 
             if(user.confirmed) {
-                const error = new Error('El Usuario ya esta confirmado')
+                const error = new Error('El Usuario ya está confirmado')
                 return res.status(403).json({ error: error.message })
             }
 
@@ -149,7 +149,7 @@ export class AuthController {
             // Usuario existe
             const user = await User.findOne({ email })
             if (!user) {
-                const error = new Error('El Usuario no esta registrado')
+                const error = new Error('El Usuario no está registrado')
                 return res.status(404).json({ error: error.message })
             }
 
@@ -180,7 +180,7 @@ export class AuthController {
                 const error = new Error('Token no válido')
                 return res.status(404).json({ error: error.message })
             }
-            res.send('Token válido, Define tu nuevo password')
+            res.send('Token válido, define tu nuevo password')
         } catch (error) {
             res.status(500).json({ error: 'Hubo un error' })
         }
@@ -217,7 +217,7 @@ export class AuthController {
 
         const userExists = await User.findOne({email})
         if(userExists && userExists.id.toString() !== req.user.id.toString() ) {
-            const error = new Error('Ese email ya esta registrado')
+            const error = new Error('Ese email ya está registrado')
             return res.status(409).json({error: error.message})
         }
 
