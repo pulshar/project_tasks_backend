@@ -57,7 +57,7 @@ export class ProjectController {
       req.project.description = req.body.description;
 
       await req.project.save();
-      res.send("Proyecto Actualizado");
+      res.send("Proyecto actualizado");
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +66,7 @@ export class ProjectController {
   static deleteProject = async (req: Request, res: Response) => {
     try {
       await req.project.deleteOne();
-      res.send("Proyecto Eliminado");
+      res.send("Proyecto eliminado");
     } catch (error) {
       console.log(error);
     }

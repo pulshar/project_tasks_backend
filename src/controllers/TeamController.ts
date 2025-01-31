@@ -9,7 +9,7 @@ export class TeamMemberController {
         // Find user
         const user = await User.findOne({email}).select('id email name')
         if(!user) {
-            const error = new Error('Usuario No Encontrado')
+            const error = new Error('Usuario no encontrado')
             return res.status(404).json({error: error.message})
         }
         res.json(user)
@@ -29,7 +29,7 @@ export class TeamMemberController {
         // Find user
         const user = await User.findById(id).select('id')
         if(!user) {
-            const error = new Error('Usuario No Encontrado')
+            const error = new Error('Usuario no encontrado')
             return res.status(404).json({error: error.message})
         }
 

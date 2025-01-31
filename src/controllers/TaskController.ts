@@ -44,7 +44,7 @@ export class TaskController {
       req.task.name = req.body.name;
       req.task.description = req.body.description;
       await req.task.save();
-      res.send("Tarea Actualizada Correctamente");
+      res.send("Tarea actualizada correctamente");
     } catch (error) {
       res.status(500).json({ error: "Hubo un error" });
     }
@@ -56,7 +56,7 @@ export class TaskController {
         (task) => task.toString() !== req.task.id.toString()
       );
       await Promise.allSettled([req.task.deleteOne(), req.project.save()]);
-      res.send("Tarea Eliminada Correctamente");
+      res.send("Tarea eliminada correctamente");
     } catch (error) {
       res.status(500).json({ error: "Hubo un error" });
     }
@@ -72,7 +72,7 @@ export class TaskController {
       };
       req.task.completedBy.push(data);
       await req.task.save();
-      res.send("Tarea Actualizada");
+      res.send("Tarea actualizada");
     } catch (error) {
       res.status(500).json({ error: "Hubo un error" });
     }

@@ -18,7 +18,7 @@ export class NoteController {
         req.task.notes.push(note.id)
         try {
             await Promise.allSettled([req.task.save(), note.save()])
-            res.send('Nota Creada Correctamente')
+            res.send('Nota creada correctamente')
         } catch (error) {
             res.status(500).json({error: 'Hubo un error'})
         }
@@ -51,7 +51,7 @@ export class NoteController {
 
         try {
             await Promise.allSettled([req.task.save(), note.deleteOne()])
-            res.send('Nota Eliminada')
+            res.send('Nota eliminada')
         } catch (error) {
             res.status(500).json({error: 'Hubo un error'})
         }
